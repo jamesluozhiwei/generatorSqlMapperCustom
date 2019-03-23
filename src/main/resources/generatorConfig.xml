@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="testTables" targetRuntime="MyBatis3">
+       <commentGenerator>
+           <!-- 是否去除自动生成的注释 true：是： false:否 -->
+           <property name="suppressAllComments" value="true"/>
+       </commentGenerator>
+       <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+       <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+           connectionURL="jdbc:mysql://localhost:3306/summer_mk" userId="root"
+           password="123456">
+       </jdbcConnection>
+       <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+           connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:test"
+           userId="test"
+           password="test">
+       </jdbcConnection> -->
+ 
+       <!-- 默认false，把JDBC DECIMAL和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL和
+           NUMERIC 类型解析为java.math.BigDecimal -->
+       <javaTypeResolver>
+           <property name="forceBigDecimals" value="false"/>
+       </javaTypeResolver>
+ 
+       <!-- targetProject:生成PO类的位置 -->
+       <javaModelGenerator targetPackage="com.qqys.summer.pojo"
+           targetProject="src/main/java">
+           <!--enableSubPackages:是否让schema作为包的后缀 -->
+           <property name="enableSubPackages" value="false"/>
+           <!-- 从数据库返回的值被清理前后的空格 -->
+           <property name="trimStrings" value="true"/>
+       </javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+       <sqlMapGenerator targetPackage="com.qqys.summer.mapper"
+           targetProject="src/main/java">
+           <!--enableSubPackages:是否让schema作为包的后缀 -->
+           <property name="enableSubPackages" value="false"/>
+       </sqlMapGenerator>
+       <!-- targetPackage：mapper接口生成的位置 -->
+       <javaClientGenerator type="XMLMAPPER"
+           targetPackage="com.qqys.summer.mapper"
+           targetProject="src/main/java">
+           <!--enableSubPackages:是否让schema作为包的后缀 -->
+           <property name="enableSubPackages" value="false"/>
+       </javaClientGenerator>
+       
+       <!-- 指定数据库表 -->
+        <table tableName="tb_year" domainObjectName = "Year"></table>
+        <table tableName="tb_class_info" domainObjectName = "ClassInfo"></table>
+        <table tableName="tb_class_child_relation" domainObjectName = "ClassChildRelation"></table>
+        <!--<table tableName="tb_health" domainObjectName = "Health"></table>-->
+        <!--<table tableName="tb_child" domainObjectName = "Child"></table>
+        <table tableName="tb_parent" domainObjectName = "Parent"></table>
+        <table tableName="tb_check_list" domainObjectName = "CheckList"></table>-->
+       <!--<table tableName="admin" domainObjectName="Admin"></table>&lt;!&ndash; tableName指定表名、domainObjectName指定生成的实体类的类名 &ndash;&gt;
+	   <table tableName="bus" domainObjectName="Bus"></table>
+	   <table tableName="driver" domainObjectName="Driver"></table>
+	   <table tableName="history" domainObjectName="History"></table>
+	   <table tableName="station" domainObjectName="Station"></table>
+	   <table tableName="way" domainObjectName="Way"></table>
+        <table tableName="way_station" domainObjectName="WayStation"></table>-->
+        <!--<table tableName="tb_apply" domainObjectName = "Apply"></table>
+
+        -->
+        <!--<table tableName="tb_order" domainObjectName = "Order"></table>
+        <table tableName="tb_order_history" domainObjectName = "OrderHistory"></table>
+        -->
+        <!--<table tableName="tb_parent" domainObjectName = "Parent"></table>-->
+        <!--<table tableName="tb_payment_history" domainObjectName = "PaymentHistory"></table>-->
+        <!--<table tableName="tb_pickup_info" domainObjectName = "PickupInfo"></table>
+        <table tableName="tb_term" domainObjectName = "Term"></table>
+        <table tableName="tb_user" domainObjectName = "User"></table>-->
+    </context>
+</generatorConfiguration>
